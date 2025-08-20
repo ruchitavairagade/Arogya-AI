@@ -1,0 +1,146 @@
+PS G:\Anand> & C:/Users/ayush/AppData/Local/Programs/Python/Python312/python.exe g:/Anand/train_model.py
+2025-03-31 02:28:22.993467: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-03-31 02:28:24.250192: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Loading data from CSV file: herbal_remedies_dataset.csv
+Dataset shape: (1000000, 12)
+Dataset columns: ['Plant Name', 'Scientific Name', 'Part Used', 'Medical Condition Treated', 'Usage Method', 'Dosage', 'Effectiveness Score', 'Side Effects', 'Region Grown', 'Climate Preference', 'Nutritional Benefits', 'Drug Interactions']
+Sample data (first 3 rows):
+  Plant Name         Scientific Name Part Used  ... Climate Preference Nutritional Benefits             Drug Interactions
+0   Hibiscus  Hibiscus rosa-sinensis   Flowers  ...              Humid                 Iron  Avoid with diabetes medicine
+1     Ginger     Zingiber officinale     Seeds  ...          Temperate                 Iron  Avoid with diabetes medicine
+2  Shatavari     Asparagus racemosus     Seeds  ...                Dry              Protein             Not for pregnancy
+
+[3 rows x 12 columns]
+
+==================================================
+IMPORTANT: We will predict 'Plant Name' based on other herb properties
+If you want to predict something else, change the TARGET_COLUMN variable in the code
+==================================================
+
+Using 11 features to predict Plant Name
+Features: ['Scientific Name', 'Part Used', 'Medical Condition Treated', 'Usage Method', 'Dosage', 'Effectiveness Score', 'Side Effects', 'Region Grown', 'Climate Preference', 'Nutritional Benefits', 'Drug Interactions']
+Number of unique Plant Name values: 15
+Sample of encoded labels: [ 8  7 12  2  8]
+Saved 15 class names
+Categorical columns: ['Scientific Name', 'Part Used', 'Medical Condition Treated', 'Usage Method', 'Dosage', 'Side Effects', 'Region Grown', 'Climate Preference', 'Nutritional Benefits', 'Drug Interactions']
+Numerical columns: ['Effectiveness Score']
+Text columns: []
+Processed features shape: (1000000, 70)
+Training on 800000 samples, validating on 200000 samples
+Feature vector size: 70
+C:\Users\ayush\AppData\Local\Programs\Python\Python312\Lib\site-packages\keras\src\layers\core\dense.py:87: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.       
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+2025-03-31 02:28:33.570355: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ dense (Dense)                        │ (None, 256)                 │          18,176 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 256)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_1 (Dense)                      │ (None, 128)                 │          32,896 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout_1 (Dropout)                  │ (None, 128)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_2 (Dense)                      │ (None, 64)                  │           8,256 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_3 (Dense)                      │ (None, 15)                  │             975 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 60,303 (235.56 KB)
+ Trainable params: 60,303 (235.56 KB)
+ Non-trainable params: 0 (0.00 B)
+
+Starting model training. This may take some time with a large dataset...
+Epoch 1/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 40s 2ms/step - accuracy: 0.9804 - loss: 0.0704 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 2/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 0.9999 - loss: 1.8896e-04 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 3/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 7.3279e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 4/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 43s 2ms/step - accuracy: 1.0000 - loss: 3.0954e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 5/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 40s 2ms/step - accuracy: 1.0000 - loss: 1.7394e-04 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 6/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 41s 2ms/step - accuracy: 1.0000 - loss: 8.2274e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 7/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 46s 2ms/step - accuracy: 1.0000 - loss: 2.4436e-04 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 8/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 45s 2ms/step - accuracy: 1.0000 - loss: 2.0545e-06 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 9/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 40s 2ms/step - accuracy: 1.0000 - loss: 4.6550e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 10/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 41s 2ms/step - accuracy: 1.0000 - loss: 3.1528e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+6250/6250 ━━━━━━━━━━━━━━━━━━━━ 6s 1ms/step - accuracy: 1.0000 - loss: 0.0000e+00   
+Test accuracy: 1.0000
+Test accuracy: 100.00%
+Epoch 1/10
+24978/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 3.4615e-10    
+Epoch 1 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 39s 2ms/step - accuracy: 1.0000 - loss: 3.4603e-10 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 2/10
+24970/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 9.9737e-08    
+Epoch 2 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 9.9763e-08 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 3/10
+24989/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 1.4936e-04    
+Epoch 3 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 1.4933e-04 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 4/10
+24996/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 4.2060e-05    
+Epoch 4 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 4.2058e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 5/10
+24969/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 4.0066e-05    
+Epoch 5 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 4.0067e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 6/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 1.7512e-06    
+Epoch 6 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 1.7512e-06 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 7/10
+24980/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 1.4058e-08    
+Epoch 7 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 1.4090e-08 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 8/10
+24968/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 1.9570e-09    
+Epoch 8 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 1.9591e-09 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 9/10
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 5.9338e-05    
+Epoch 9 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 5.9339e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+Epoch 10/10
+24989/25000 ━━━━━━━━━━━━━━━━━━━━ 0s 1ms/step - accuracy: 1.0000 - loss: 2.3878e-05    
+Epoch 10 metrics in percentage:
+Training accuracy: 100.00%
+Validation accuracy: 100.00%
+25000/25000 ━━━━━━━━━━━━━━━━━━━━ 42s 2ms/step - accuracy: 1.0000 - loss: 2.3879e-05 - val_accuracy: 1.0000 - val_loss: 0.0000e+00
+WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`.      
+Model saved as herbal_remedy_text_model.h5
+Preprocessing information saved to preprocessing_info.pkl
+
+Training completed. Model is now ready to use.
+The model can predict Plant Name based on other herb properties.
+PS G:\Anand> 
+
