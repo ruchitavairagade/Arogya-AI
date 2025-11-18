@@ -22,7 +22,6 @@ Arogya AI is an intelligent herbal remedy recommender system designed to bridge 
 
 
 
-
 Arogya-AI-/
 │
 ├── app.py
@@ -31,9 +30,9 @@ Arogya-AI-/
 ├── requirements.txt
 │
 ├── setup/
-│   ├── RUN_FIRST.bat
-│   ├── auto_import_dataset.py
-│   └── setup_instructions.txt
+│ ├── RUN_FIRST.bat
+│ ├── auto_import_dataset.py
+│ └── setup_instructions.txt
 │
 └── templates/
-    └── index.html
+└── index.html
