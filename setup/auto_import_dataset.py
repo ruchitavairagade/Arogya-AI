@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 
 # Your Google Drive Download Link (CHANGE THIS TO YOUR CSV LINK)
-DRIVE_URL = "https://drive.google.com/uc?export=download&id=1X_8OloXb7bD6L4Hf0pCTBWH949eYzU9y"
+DRIVE_URL = "https://drive.google.com/file/d/1DSLN0QP5ntplKM6LroCeV6WwPYRCzqj7/view?usp=drive_link"
 
 LOCAL_FILE = "dataset.csv"
 
