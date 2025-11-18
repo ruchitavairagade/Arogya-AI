@@ -20,9 +20,9 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from fuzzywuzzy import fuzz
 
+from download_dataset import download_dataset
+download_dataset()
 
-import download_dataset
-download_dataset.download_and_extract()
 
 # -------------------- Logging & Flask Setup --------------------
 logging.basicConfig(level=logging.DEBUG)
