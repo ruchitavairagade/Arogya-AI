@@ -1,1 +1,32 @@
+Arogya AI - Step-by-Step Installation Guide
+------------------------------------------
+
+1️⃣ Install Python 3.10 or 3.11  
+   Download: https://www.python.org/downloads/
+
+2️⃣ Install MySQL or XAMPP
+   - Start MySQL Server
+   - Open MySQL Workbench or phpMyAdmin
+   - Create database:
+        CREATE DATABASE arogya_db;
+
+3️⃣ Download Project
+   git clone https://github.com/vedanturkudkar/Arogya-Ai-.git
+   OR download ZIP and extract
+
+4️⃣ Open project in VS Code
+
+5️⃣ Run auto setup script:
+   Double-click:
+       setup/RUN_FIRST.bat
+
+This script will automatically:
+   ✔ Create virtual environment
+   ✔ Install all dependencies
+   ✔ Download dataset
+   ✔ Import dataset into MySQL
+   ✔ Start the Flask App
+
+6️⃣ Open Arogya AI in browser:
+   http://127.0.0.1:5000
 
