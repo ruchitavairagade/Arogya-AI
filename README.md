@@ -17,3 +17,23 @@ Arogya AI is an intelligent herbal remedy recommender system designed to bridge 
 - Model Training: Classification (e.g., Decision Trees, SVM, or Neural Networks).
 - Evaluation: Accuracy, precision, recall, and F1-score.
 - Deployment: Flask-based API for real-time recommendations.
+
+
+
+
+
+
+Arogya-AI-/
+│
+├── app.py
+├── process_dataset.py
+├── mysql_config.py
+├── requirements.txt
+│
+├── setup/
+│   ├── RUN_FIRST.bat
+│   ├── auto_import_dataset.py
+│   └── setup_instructions.txt
+│
+└── templates/
+    └── index.html
