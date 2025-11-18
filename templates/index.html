@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogya - Ayurvedic Health Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --bg-color: #f0f2f5;
+            --chat-bg: #ffffff;
+            --text-color: #2c3e50;
+            --message-user-bg: #2ecc71;
+            --message-bot-bg: #f8f9fa;
+            --border-radius: 20px;
+            --transition-speed: 0.3s;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --bg-color: #1a1a1a;
+            --chat-bg: #242424;
+            --text-color: #ffffff;
+            --message-user-bg: #2ecc71;
+            --message-bot-bg: #333333;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* Main Styles */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color var(--transition-speed);
+        }
+
+        .chat-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: var(--chat-bg);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color var(--transition-speed);
+        }
+
+        /* Header Styles */
+        .chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 0;
+            position: relative;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .chat-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chat-header .fa-leaf {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Messages Area */
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            background: var(--bg-color);
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            max-width: 85%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: messageAppear 0.3s ease forwards;
+        }
+
+        @keyframes messageAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-user {
+            margin-left: auto;
+            background-color: var(--message-user-bg);
+            color: white;
+            border-radius: var(--border-radius) var(--border-radius) 0 var(--border-radius);
+            padding: 0.8rem 1.2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-bot {
+            margin-right: auto;
+            background-color: var(--message-bot-bg);
+            border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;
+            padding: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            max-width: 85%;
+            line-height: 1.5;
+        }
+
+        .message-bot .herb-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .message-bot .herb-section {
+            margin-bottom: 12px;
+        }
+
+        .message-bot .herb-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-bot ul {
+            margin: 8px 0;
+            padding-left: 24px;
+        }
+
+        .message-bot li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .message-bot li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            padding: 0.8rem;
+            background: var(--chat-bg);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 0.8rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            position: relative;
+        }
+
+        .quick-actions::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 30px;
+            background: linear-gradient(to left, var(--chat-bg), transparent);
+            pointer-events: none;
+        }
+
+        .action-button {
+            background-color: rgba(46, 204, 113, 0.1);
+            border: none;
+            color: var(--primary-color);
+            padding: 10px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+
+        .action-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+        }
+
+        .action-button i {
+            font-size: 1.1rem;
+        }
+
+        /* Input Area */
+        .chat-input-container {
+            padding: 16px;
+            background: var(--chat-bg);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .chat-controls {
+            background: var(--bg-color);
+            border-radius: 24px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 8px 16px;
+            font-size: 1rem;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        .chat-input::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="dark"] .chat-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .control-button {
+            background: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: all 0.2s;
+        }
+
+        .control-button:hover {
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .send-button {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .send-button:hover {
+            transform: scale(1.05);
+            background: var(--secondary-color);
+        }
+
+        /* Loading Animation */
+        .typing-indicator {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--message-bot-bg);
+            border-radius: var(--border-radius);
+            width: fit-content;
+            margin-bottom: 1rem;
+            animation: messageAppear 0.3s ease forwards;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: typingBounce 1s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Suggestion Chips */
+        .suggestion-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+            padding: 0 4px;
+        }
+
+        .suggestion-chip {
+            background-color: rgba(46, 204, 113, 0.1);
+            border: none;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .suggestion-chip:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .chat-container {
+                max-width: 800px;
+                margin: 1rem auto;
+                border-radius: var(--border-radius);
+                height: calc(100vh - 2rem);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .chat-header {
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
+            }
+
+            .chat-input-container {
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+            }
+        }
+
+        /* Dark Mode Transition */
+        * {
+            transition: background-color var(--transition-speed),
+                      color var(--transition-speed),
+                      border-color var(--transition-speed);
+        }
+
+        /* Emoji Picker Styles */
+        .emoji-picker {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 0;
+            background: var(--chat-bg);
+            border-radius: 12px;
+            padding: 12px;
+            display: none;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            width: 280px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            animation: slideUp 0.2s ease-out;
+        }
+
+        .emoji-picker::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 15px;
+            width: 16px;
+            height: 16px;
+            background: var(--chat-bg);
+            transform: rotate(45deg);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+
+        .emoji-picker-header {
+            grid-column: 1 / -1;
+            padding: 0 0 8px 0;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .emoji-button {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emoji-button:hover {
+            background-color: rgba(46, 204, 113, 0.1);
+            transform: scale(1.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover i {
+            transform: rotate(45deg);
+        }
+
+        .header .logo {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Arogya AI Logo" class="logo">
+            <div class="nav-links">
+                <a href="{{ url_for('chat_history') }}" class="nav-link">Chat History</a>
+                <a href="{{ url_for('chat') }}" class="nav-link">New Chat</a>
+            </div>
+        </div>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+            <h2 class="mb-0"><i class="fas fa-leaf"></i> Arogya</h2>
+            <p class="mb-0 small">Your Ayurvedic Health Assistant</p>
+        </div>
+
+        <div class="quick-actions">
+            <button class="action-button" onclick="suggestCommonSymptoms()">
+                <i class="fas fa-heartbeat"></i> Symptoms
+            </button>
+            <button class="action-button" onclick="showPopularHerbs()">
+                <i class="fas fa-seedling"></i> Herbs
+            </button>
+        </div>
+        
+        <div id="chat-messages" class="chat-messages">
+            <div class="message message-bot">
+                <div class="message-content">
+                    I can help you with:
+                    - Information about Ayurvedic herbs
+                    - Common health concerns and remedies
+                    - General wellness advice
+                    Feel free to ask about specific herbs or health concerns!
+                </div>
+            </div>
+        </div>
+
+        <div class="suggestion-chips" id="suggestion-chips">
+            <!-- Dynamically populated -->
+        </div>
+
+        <div class="chat-input-container">
+            <div class="chat-controls">
+                <button class="control-button" onclick="toggleEmojiPicker()">
+                    <i class="far fa-smile"></i>
+                </button>
+                <input type="text" id="chat-input" class="chat-input" 
+                       placeholder="Type a message...">
+                <button class="control-button" onclick="document.getElementById('file-input').click()">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <input type="file" id="file-input" hidden multiple accept="image/*">
+                <button class="send-button" id="send-button" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="emoji-picker" id="emoji-picker">
+                <div class="emoji-picker-header">Frequently Used</div>
+                <!-- Emojis will be populated by JavaScript -->
+            </div>
+            <div class="attachment-preview" id="attachment-preview"></div>
+        </div>
+    </div>
+
+    <script>
+        // Common suggestions and herbs data
+        const commonSuggestions = [
+            "Hi",
+            "What herbs help with stress?",
+            "Tell me about Ashwagandha",
+            "How to boost immunity?",
+            "Help with digestion"
+        ];
+
+        const popularHerbs = [
+            "Ashwagandha",
+            "Turmeric",
+            "Brahmi",
+            "Shatavari",
+            "Triphala"
+        ];
+
+        // Main chat functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-button');
+            const chatMessages = document.getElementById('chat-messages');
+            let currentSessionId = null;
+
+            // Add event listener for Enter key
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Initialize with existing chat history if available
+            {% if chat_history %}
+                {% for message in chat_history %}
+                    appendMessage('user', {{ message.user_message|tojson }});
+                    appendMessage('bot', {{ message.bot_response|tojson }});
+                {% endfor %}
+                scrollToBottom();
+            {% endif %}
+
+            // Message handling functions
+            function sendMessage() {
+                const message = messageInput.value.trim();
+                if (!message) return;
+
+                appendMessage('user', message);
+                messageInput.value = '';
+
+                // Show typing indicator
+                const typingIndicator = showTypingIndicator();
+                
+                // Send message to backend
+                fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        session_id: currentSessionId
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Remove typing indicator
+                    if (typingIndicator) {
+                        typingIndicator.remove();
+                    }
+
+                    if (data.error) {
+                        appendMessage('bot', 'I apologize, but I encountered an error. Please try again.');
+                    } else {
+                        appendMessage('bot', data.response);
+                        currentSessionId = data.session_id;
+                        
+                        // Show suggestions if no specific recommendations
+                        if (!data.response.includes('recommended herbs')) {
+                            suggestCommonSymptoms();
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    if (typingIndicator) {
+                        typingIndicator.remove();
+                    }
+                    appendMessage('bot', 'I apologize, but I encountered an error. Please try again.');
+                    suggestCommonSymptoms();
+                });
+
+                scrollToBottom();
+            }
+
+            function appendMessage(sender, message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', `message-${sender}`);
+                
+                // Format the message based on type
+                if (sender === 'bot') {
+                    messageDiv.innerHTML = formatBotMessage(message);
+                } else {
+                    messageDiv.textContent = message;
+                }
+                
+                chatMessages.appendChild(messageDiv);
+                scrollToBottom();
+            }
+
+            function showTypingIndicator() {
+                const indicator = document.createElement('div');
+                indicator.className = 'typing-indicator';
+                indicator.innerHTML = `
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                `;
+                chatMessages.appendChild(indicator);
+                scrollToBottom();
+                return indicator;
+            }
+
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Message formatting functions
+            function formatBotMessage(message) {
+                // Check if message contains herb information
+                if (message.includes('Properties:') || message.includes('Benefits:')) {
+                    return formatHerbMessage(message);
+                }
+                
+                // Check if message contains recommendations
+                if (message.includes('recommended herbs')) {
+                    return formatRecommendationMessage(message);
+                }
+                
+                // Default formatting
+                return `<div class="message-content">${message}</div>`;
+            }
+
+            function formatHerbMessage(message) {
+                const sections = message.split('\n');
+                let html = '<div class="herb-info">';
+                
+                sections.forEach(section => {
+                    if (section.trim()) {
+                        if (section.includes(':')) {
+                            const [title, content] = section.split(':');
+                            html += `
+                                <div class="herb-section">
+                                    <div class="herb-title">
+                                        <i class="fas fa-leaf"></i> ${title.trim()}
+                                    </div>
+                                    <div class="herb-content">${content.trim()}</div>
+                                </div>
+                            `;
+                        } else {
+                            html += `<div class="herb-section">${section}</div>`;
+                        }
+                    }
+                });
+                
+                html += '</div>';
+                return html;
+            }
+
+            function formatRecommendationMessage(message) {
+                const sections = message.split('\n');
+                let html = '<div class="recommendations">';
+                
+                sections.forEach(section => {
+                    if (section.trim()) {
+                        if (section.startsWith('-')) {
+                            html += `<div class="recommendation-item">
+                                <i class="fas fa-check-circle"></i>
+                                ${section.substring(1).trim()}
+                            </div>`;
+                        } else {
+                            html += `<div class="recommendation-section">${section}</div>`;
+                        }
+                    }
+                });
+                
+                html += '</div>';
+                return html;
+            }
+
+            // Suggestion functions
+            function suggestCommonSymptoms() {
+                const suggestionsContainer = document.getElementById('suggestion-chips');
+                suggestionsContainer.innerHTML = '';
+                
+                commonSuggestions.forEach(suggestion => {
+                    const chip = document.createElement('button');
+                    chip.className = 'suggestion-chip';
+                    chip.textContent = suggestion;
+                    chip.onclick = () => {
+                        messageInput.value = suggestion;
+                        sendMessage();
+                    };
+                    suggestionsContainer.appendChild(chip);
+                });
+            }
+
+            function showPopularHerbs() {
+                const suggestionsContainer = document.getElementById('suggestion-chips');
+                suggestionsContainer.innerHTML = '';
+                
+                popularHerbs.forEach(herb => {
+                    const chip = document.createElement('button');
+                    chip.className = 'suggestion-chip';
+                    chip.textContent = `Tell me about ${herb}`;
+                    chip.onclick = () => {
+                        messageInput.value = chip.textContent;
+                        sendMessage();
+                    };
+                    suggestionsContainer.appendChild(chip);
+                });
+            }
+        });
+
+        // Theme handling
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', 'dark');
+        }
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+        updateThemeIcon();
+
+        function updateThemeIcon() {
+            const themeToggle = document.querySelector('.theme-toggle i');
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeToggle.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function toggleTheme() {
+            const body = document.documentElement;
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            updateThemeIcon();
+        }
+
+        // Emoji Picker
+        function initEmojiPicker() {
+            const picker = document.getElementById('emoji-picker');
+            const frequentEmojis = ['🌿', '🍃', '✨', '💪', '❤️', '🌟', '😌', '🧘', '🌺', '🍵', '💚', '🙏'];
+            
+            frequentEmojis.forEach(emoji => {
+                const button = document.createElement('button');
+                button.className = 'emoji-button';
+                button.textContent = emoji;
+                button.onclick = () => {
+                    const input = document.getElementById('chat-input');
+                    input.value += emoji;
+                    input.focus();
+                    picker.style.display = 'none';
+                };
+                picker.appendChild(button);
+            });
+        }
+
+        function toggleEmojiPicker() {
+            const picker = document.getElementById('emoji-picker');
+            picker.style.display = picker.style.display === 'grid' ? 'none' : 'grid';
+        }
+    </script>
+</body>
+
+</html>

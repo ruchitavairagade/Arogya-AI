@@ -1,0 +1,448 @@
+{
+    "Ashwagandha": {
+        "sanskrit_name": "Ashwagandha",
+        "scientific_name": "Withania somnifera",
+        "description": "Known as 'Indian Winter Cherry' or 'Indian Ginseng', Ashwagandha is one of the most important herbs in Ayurveda. It is a powerful adaptogen that helps the body manage stress.",
+        "part_used": "Root, Leaves",
+        "properties": ["Adaptogenic", "Immunomodulator", "Anti-inflammatory", "Antioxidant", "Nervine tonic"],
+        "dosha_balance": ["Vata", "Kapha"],
+        "treats_symptoms": [
+            "stress", "anxiety", "fatigue", "low energy", "poor sleep", "weak immunity",
+            "muscle weakness", "low stamina", "poor concentration", "memory issues"
+        ],
+        "treats_conditions": [
+            "insomnia", "chronic fatigue syndrome", "anxiety disorders", "depression",
+            "arthritis", "hypothyroidism", "male infertility", "neurodegenerative conditions"
+        ],
+        "usage": "Take 1-2 teaspoons of Ashwagandha powder with warm milk or water, twice daily. Can also be taken as capsules or tablets as directed.",
+        "effectiveness": 9,
+        "precautions": [
+            "Avoid during pregnancy",
+            "May interact with thyroid medications",
+            "Consult healthcare provider if taking sedatives",
+            "May lower blood sugar and blood pressure"
+        ],
+        "nutritional_benefits": [
+            "Rich in iron and antioxidants",
+            "Contains alkaloids and withanolides",
+            "Good source of fatty acids and amino acids"
+        ],
+        "drug_interactions": [
+            "Thyroid medications",
+            "Sedatives and anti-anxiety drugs",
+            "Diabetes medications",
+            "Blood pressure medications"
+        ],
+        "research_backed": true,
+        "traditional_use": "Over 3000 years in Ayurvedic medicine"
+    },
+    "Turmeric": {
+        "sanskrit_name": "Haridra",
+        "scientific_name": "Curcuma longa",
+        "description": "A powerful anti-inflammatory herb that has been used in Ayurvedic medicine for thousands of years. Known for its bright yellow color and numerous health benefits.",
+        "part_used": "Rhizome",
+        "properties": ["Anti-inflammatory", "Antioxidant", "Antimicrobial", "Blood purifier", "Digestive"],
+        "dosha_balance": ["Vata", "Pitta", "Kapha"],
+        "treats_symptoms": [
+            "joint pain", "inflammation", "digestive issues", "skin problems",
+            "respiratory issues", "poor circulation", "wounds", "bruises"
+        ],
+        "treats_conditions": [
+            "arthritis", "inflammatory bowel disease", "diabetes", "allergies",
+            "depression", "alzheimer's", "cancer prevention", "skin conditions"
+        ],
+        "usage": "Take 1/2-1 teaspoon with warm milk (golden milk) or add to food. Best absorbed with black pepper and healthy fats.",
+        "effectiveness": 9,
+        "precautions": [
+            "May interact with blood thinners",
+            "Avoid high doses during pregnancy",
+            "May lower blood sugar",
+            "Can increase bile production"
+        ],
+        "nutritional_benefits": [
+            "High in curcumin",
+            "Rich in manganese, iron, and vitamin B6",
+            "Contains essential oils",
+            "Powerful antioxidant properties"
+        ],
+        "drug_interactions": [
+            "Blood thinners",
+            "Diabetes medications",
+            "Stomach acid reducers"
+        ],
+        "research_backed": true,
+        "traditional_use": "Over 4000 years in Ayurvedic medicine"
+    },
+    "Brahmi": {
+        "sanskrit_name": "Brahmi",
+        "scientific_name": "Bacopa monnieri",
+        "description": "A powerful brain tonic that enhances memory, concentration, and cognitive function. Known as the 'herb of grace' in Ayurvedic medicine.",
+        "part_used": "Whole plant",
+        "properties": ["Nootropic", "Adaptogenic", "Nervine tonic", "Memory enhancer", "Anti-anxiety"],
+        "dosha_balance": ["Vata", "Pitta", "Kapha"],
+        "treats_symptoms": [
+            "poor memory", "anxiety", "stress", "poor concentration",
+            "mental fatigue", "insomnia", "ADHD symptoms", "nervous tension"
+        ],
+        "treats_conditions": [
+            "anxiety disorders", "ADHD", "alzheimer's disease", "depression",
+            "epilepsy", "cognitive decline", "memory disorders"
+        ],
+        "usage": "Take 1/2-1 teaspoon of Brahmi powder with warm water or milk, twice daily. Can also be taken as juice or in capsule form.",
+        "effectiveness": 8,
+        "precautions": [
+            "May cause digestive upset in some people",
+            "Start with small doses",
+            "Consult healthcare provider if pregnant or nursing",
+            "May interact with thyroid medications"
+        ],
+        "nutritional_benefits": [
+            "Rich in antioxidants",
+            "Contains bacosides",
+            "High in flavonoids",
+            "Good source of alkaloids"
+        ],
+        "drug_interactions": [
+            "Thyroid medications",
+            "Calcium channel blockers",
+            "Acetylcholinesterase inhibitors"
+        ],
+        "research_backed": true,
+        "traditional_use": "Over 3000 years in Ayurvedic medicine"
+    },
+    "Triphala": {
+        "sanskrit_name": "Three fruits",
+        "dosha_balance": [
+            "Vata",
+            "Pitta",
+            "Kapha"
+        ],
+        "properties": [
+            "Digestive",
+            "Cleansing",
+            "Rejuvenating"
+        ],
+        "treats_symptoms": [
+            "Constipation",
+            "Digestive Issues",
+            "Bloating",
+            "Gas"
+        ],
+        "treats_conditions": [
+            "Digestive Issues",
+            "Chronic constipation",
+            "Inflammation"
+        ],
+        "description": "Triphala is a traditional Ayurvedic formulation consisting of three fruits that promote digestive health and gentle detoxification.",
+        "usage": "Take 1/2 teaspoon powder with warm water before bed or in the morning on empty stomach",
+        "precautions": [
+            "May cause loose stools initially",
+            "Not recommended during pregnancy"
+        ]
+    },
+    "Shatavari": {
+        "sanskrit_name": "Asparagus racemosus",
+        "dosha_balance": [
+            "Vata",
+            "Pitta"
+        ],
+        "properties": [
+            "Rejuvenating",
+            "Nourishing",
+            "Cooling"
+        ],
+        "treats_symptoms": [
+            "Hormonal imbalance",
+            "Fatigue",
+            "Digestive Issues",
+            "Stress"
+        ],
+        "treats_conditions": [
+            "Digestive Issues",
+            "Low immunity",
+            "Hair Care",
+            "Female reproductive issues"
+        ],
+        "description": "Shatavari is known as the 'Queen of Herbs' in Ayurveda, particularly beneficial for women's health and hormonal balance.",
+        "usage": "Take 1-2 teaspoons with warm milk or water twice daily",
+        "precautions": [
+            "Mild headache",
+            "May not be suitable for those with estrogen-sensitive conditions"
+        ],
+        "scientific_name": "Asparagus racemosus",
+        "part_used": "Leaves",
+        "effectiveness": 2,
+        "region": "South America",
+        "climate": "Temperate",
+        "nutritional_benefits": [
+            "Calcium"
+        ],
+        "drug_interactions": [
+            "No known interactions"
+        ]
+    },
+    "Hibiscus": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Hibiscus rosa-sinensis",
+        "part_used": "Leaves",
+        "treats_conditions": [
+            "Fever"
+        ],
+        "usage": "Capsule. Dosage: 500mg Capsule",
+        "effectiveness": 3,
+        "precautions": [
+            "Allergy"
+        ],
+        "region": "Europe",
+        "climate": "Temperate",
+        "nutritional_benefits": [
+            "Fiber"
+        ],
+        "drug_interactions": [
+            "Safe with antibiotics"
+        ]
+    },
+    "Ginger": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Zingiber officinale",
+        "part_used": "Seeds",
+        "treats_conditions": [
+            "Diabetes"
+        ],
+        "usage": "Oil. Dosage: 1 tsp Powder",
+        "effectiveness": 2,
+        "precautions": [
+            "No side effects"
+        ],
+        "region": "South America",
+        "climate": "Dry",
+        "nutritional_benefits": [
+            "Antioxidants"
+        ],
+        "drug_interactions": [
+            "No known interactions"
+        ]
+    },
+    "Tulsi": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Ocimum sanctum",
+        "part_used": "Leaves",
+        "treats_conditions": [
+            "Mental Health"
+        ],
+        "usage": "Raw. Dosage: 10ml Juice",
+        "effectiveness": 3,
+        "precautions": [
+            "nan"
+        ],
+        "region": "South America",
+        "climate": "Temperate",
+        "nutritional_benefits": [
+            "Iron"
+        ],
+        "drug_interactions": [
+            "Safe with antibiotics"
+        ]
+    },
+    "Aloe Vera": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Aloe barbadensis",
+        "part_used": "Leaves",
+        "treats_conditions": [
+            "Cold & Cough"
+        ],
+        "usage": "Paste. Dosage: 1-2 Leaves per day",
+        "effectiveness": 3,
+        "precautions": [
+            "Mild headache"
+        ],
+        "region": "Africa",
+        "climate": "Dry",
+        "nutritional_benefits": [
+            "Magnesium"
+        ],
+        "drug_interactions": [
+            "Not for pregnancy"
+        ]
+    },
+    "Arjuna": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Terminalia arjuna",
+        "part_used": "Seeds",
+        "treats_conditions": [
+            "Stomach Issues"
+        ],
+        "usage": "Juice. Dosage: 1 tsp Powder",
+        "effectiveness": 6,
+        "precautions": [
+            "Mild headache"
+        ],
+        "region": "Europe",
+        "climate": "Tropical",
+        "nutritional_benefits": [
+            "Iron"
+        ],
+        "drug_interactions": [
+            "No known interactions"
+        ]
+    },
+    "Neem": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Azadirachta indica",
+        "part_used": "Roots",
+        "treats_conditions": [
+            "Heart Health"
+        ],
+        "usage": "Capsule. Dosage: 500mg Capsule",
+        "effectiveness": 5,
+        "precautions": [
+            "Allergy"
+        ],
+        "region": "China",
+        "climate": "Humid",
+        "nutritional_benefits": [
+            "Calcium"
+        ],
+        "drug_interactions": [
+            "Avoid with diabetes medicine"
+        ]
+    },
+    "Fenugreek": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Trigonella foenum-graecum",
+        "part_used": "Leaves",
+        "treats_conditions": [
+            "Diabetes"
+        ],
+        "usage": "Paste. Dosage: 1 tsp Powder",
+        "effectiveness": 1,
+        "precautions": [
+            "No side effects"
+        ],
+        "region": "India",
+        "climate": "Dry",
+        "nutritional_benefits": [
+            "Protein"
+        ],
+        "drug_interactions": [
+            "No known interactions"
+        ]
+    },
+    "Peppermint": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Mentha piperita",
+        "part_used": "Seeds",
+        "treats_conditions": [
+            "Fever"
+        ],
+        "usage": "Juice. Dosage: 3ml Oil",
+        "effectiveness": 4,
+        "precautions": [
+            "Allergy"
+        ],
+        "region": "India",
+        "climate": "Temperate",
+        "nutritional_benefits": [
+            "Protein"
+        ],
+        "drug_interactions": [
+            "Avoid with diabetes medicine"
+        ]
+    },
+    "Mulethi": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Glycyrrhiza glabra",
+        "part_used": "Roots",
+        "treats_conditions": [
+            "Immunity Boost"
+        ],
+        "usage": "Paste. Dosage: 10ml Juice",
+        "effectiveness": 5,
+        "precautions": [
+            "Allergy"
+        ],
+        "region": "Africa",
+        "climate": "Dry",
+        "nutritional_benefits": [
+            "Protein"
+        ],
+        "drug_interactions": [
+            "Not for pregnancy"
+        ]
+    },
+    "Giloy": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Tinospora cordifolia",
+        "part_used": "Seeds",
+        "treats_conditions": [
+            "Skin Problems"
+        ],
+        "usage": "Paste. Dosage: 10ml Juice",
+        "effectiveness": 7,
+        "precautions": [
+            "Allergy"
+        ],
+        "region": "China",
+        "climate": "Dry",
+        "nutritional_benefits": [
+            "Calcium"
+        ],
+        "drug_interactions": [
+            "Avoid with diabetes medicine"
+        ]
+    },
+    "Cinnamon": {
+        "sanskrit_name": "",
+        "dosha_balance": [],
+        "properties": [],
+        "treats_symptoms": [],
+        "scientific_name": "Cinnamomum verum",
+        "part_used": "Leaves",
+        "treats_conditions": [
+            "Diabetes"
+        ],
+        "usage": "Raw. Dosage: 500mg Capsule",
+        "effectiveness": 5,
+        "precautions": [
+            "Dizziness"
+        ],
+        "region": "China",
+        "climate": "Tropical",
+        "nutritional_benefits": [
+            "Calcium"
+        ],
+        "drug_interactions": [
+            "Safe with antibiotics"
+        ]
+    }
+}

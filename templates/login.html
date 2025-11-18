@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogya AI - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: #2E7D32;
+            margin-bottom: 0.5rem;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 16px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .medical-pro {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .medical-pro:hover {
+            background-color: #388E3C;
+        }
+
+        .patient {
+            background-color: #4DB6AC;
+            color: white;
+        }
+
+        .patient:hover {
+            background-color: #00897B;
+        }
+
+        .create-account {
+            color: #2E7D32;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .create-account:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #f44336;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Arogya AI Logo" class="logo">
+        <h1>Arogya AI</h1>
+        <p class="subtitle">Herbal Health Care</p>
+        
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <a href="{{ url_for('medical_login') }}" class="button medical-pro">Medical Professional</a>
+        <a href="{{ url_for('patient_login') }}" class="button patient">Patient Portal</a>
+        
+        <p style="margin-top: 1rem;">
+            New here? <a href="{{ url_for('register') }}" class="create-account">Create Account</a>
+        </p>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Professional Login - Arogya AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("{{ url_for('static', filename='background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: #2E7D32;
+            margin-bottom: 0.5rem;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 16px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #388E3C;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 1rem;
+            color: #2E7D32;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #f44336;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Arogya AI Logo" class="logo">
+        <h1>Medical Professional Login</h1>
+        <p class="subtitle">Access your professional dashboard</p>
+        
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="button">Login</button>
+        </form>
+        
+        <a href="{{ url_for('home') }}" class="back-link">← Back to main page</a>
+    </div>
+</body>
+</html> 

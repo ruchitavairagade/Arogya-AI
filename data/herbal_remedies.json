@@ -1,0 +1,52 @@
+{
+    "Ashwagandha": {
+        "sanskrit_name": "Withania somnifera",
+        "dosha_balance": ["Vata", "Kapha"],
+        "properties": ["Adaptogenic", "Rejuvenating", "Strengthening"],
+        "treats_symptoms": ["Stress", "Anxiety", "Fatigue", "Insomnia", "Low energy"],
+        "treats_conditions": ["Anxiety Disorders", "Sleep Disorders", "Arthritis", "Low immunity"],
+        "description": "Ashwagandha is one of the most important herbs in Ayurveda, known as 'Indian Winter Cherry'. It promotes strength, vitality, and overall wellness.",
+        "usage": "Take 1-2 teaspoons of Ashwagandha powder with warm milk before bedtime",
+        "precautions": ["Not recommended during pregnancy", "May interact with thyroid medications", "Consult doctor if on blood pressure medication"]
+    },
+    "Turmeric": {
+        "sanskrit_name": "Curcuma longa",
+        "dosha_balance": ["Vata", "Pitta", "Kapha"],
+        "properties": ["Anti-inflammatory", "Antioxidant", "Blood purifying"],
+        "treats_symptoms": ["Joint Pain", "Inflammation", "Digestive Issues", "Skin problems"],
+        "treats_conditions": ["Arthritis", "Digestive Issues", "Skin disorders", "Respiratory Infections"],
+        "description": "Turmeric is a powerful anti-inflammatory herb that has been used in Ayurvedic medicine for thousands of years.",
+        "usage": "Mix 1/2 teaspoon with warm milk or add to food. Best taken with black pepper for better absorption.",
+        "precautions": ["May interact with blood thinners", "Avoid high doses if pregnant", "May lower blood sugar"]
+    },
+    "Brahmi": {
+        "sanskrit_name": "Bacopa monnieri",
+        "dosha_balance": ["Vata", "Pitta"],
+        "properties": ["Brain tonic", "Memory enhancing", "Calming"],
+        "treats_symptoms": ["Anxiety", "Poor memory", "Stress", "Mental fatigue"],
+        "treats_conditions": ["Anxiety Disorders", "ADHD", "Memory loss", "Depression"],
+        "description": "Brahmi is a powerful brain tonic that enhances memory, concentration, and cognitive function.",
+        "usage": "Take 1/2 teaspoon Brahmi powder with honey or warm water twice daily",
+        "precautions": ["May cause digestive upset in high doses", "Consult doctor if on thyroid medication"]
+    },
+    "Triphala": {
+        "sanskrit_name": "Three fruits",
+        "dosha_balance": ["Vata", "Pitta", "Kapha"],
+        "properties": ["Digestive", "Cleansing", "Rejuvenating"],
+        "treats_symptoms": ["Constipation", "Digestive Issues", "Bloating", "Gas"],
+        "treats_conditions": ["Digestive Issues", "Chronic constipation", "Inflammation"],
+        "description": "Triphala is a traditional Ayurvedic formulation consisting of three fruits that promote digestive health and gentle detoxification.",
+        "usage": "Take 1/2 teaspoon powder with warm water before bed or in the morning on empty stomach",
+        "precautions": ["May cause loose stools initially", "Not recommended during pregnancy"]
+    },
+    "Shatavari": {
+        "sanskrit_name": "Asparagus racemosus",
+        "dosha_balance": ["Vata", "Pitta"],
+        "properties": ["Rejuvenating", "Nourishing", "Cooling"],
+        "treats_symptoms": ["Hormonal imbalance", "Fatigue", "Digestive Issues", "Stress"],
+        "treats_conditions": ["Female reproductive issues", "Digestive Issues", "Low immunity"],
+        "description": "Shatavari is known as the 'Queen of Herbs' in Ayurveda, particularly beneficial for women's health and hormonal balance.",
+        "usage": "Take 1-2 teaspoons with warm milk or water twice daily",
+        "precautions": ["May not be suitable for those with estrogen-sensitive conditions"]
+    }
+} 
