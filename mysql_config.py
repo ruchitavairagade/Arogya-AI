@@ -1,6 +1,6 @@
 MYSQL_CONFIG = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'Ruchi@123',  # 👈 replace this
+    'password': 'Ruchi@2024',  # 👈 replace this
     'database': 'arogya_db'
 }
